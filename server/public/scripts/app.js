@@ -1,7 +1,6 @@
 $(document).ready(function(){
   loadData();
 
-var sigmanauts = {}; //set sigmanauts as an empty array
 var i = 0;
 
 //make clientside Ajax call
@@ -13,7 +12,11 @@ function loadData() {
         sigmanauts = data;
             console.log(data);
 
+
 //adds first person to the DOM
+
+        loadStudent(data, i);
+        clicked();
 
         function loadStudent(data, i){
           $('#ajax-data').append('<div class="sigmanauts"></div>');
@@ -21,20 +24,52 @@ function loadData() {
           $el.append('<p>'+ "Name: " + data.sigmanauts[i].name + '</p>');
           $el.append('<p>'+ "Git Username: " + data.sigmanauts[i].git_username + '</p>');
           $el.append('<p>'+ "Shoutout: " + data.sigmanauts[i].shoutout + '</p>');
-          $el.append('<button id="next"> NEXT </button>');
-          if(i>0){
-          $el.append('<button id="prev"> PREV </button>');
-          }
+
         }
 
-          loadStudent(data, i);
-
-          $( "#next" ).click(function() {
+          function clicked(){
+          $("#next").click(function() {
             $('.sigmanauts').remove();
             i++;
+            if (i === 19) {
+              i = 0;
+            }
             loadStudent(data, i);
-            console.log(i);
+            //
+            // var clicking = $("#" + i).addClass("active");
+           // $(clicking).addClass("active");
+            // $(clicking).attr('id', 'active');
+            // console.log(clicking);
+
           });
+
+          $("#prev").click(function() {
+            $('.sigmanauts').remove();
+            i--;
+            if (i === -1) {
+              i = 18;
+            }
+            loadStudent(data, i);
+
+          });
+
+          $(".indexClass").click(function() {
+            var currentStudent = i;
+            loadStudent(data, i);
+          });
+
+        }
+
+        addBottomIndex();
+        addActive();
+        function addBottomIndex(){
+        for (var i = 0; i < data.sigmanauts.length; i++) {
+        $(".bottom-index").append('<div class="indexClass" id="'+ i +' ">' + i + '</div>');
+        }
+      }
+      function addActive(){
+        $(".indexClass:first-child").addClass('active');
+      }
       }
     });
   }
