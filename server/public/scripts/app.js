@@ -36,29 +36,17 @@ function loadData() {
             if (i === 19) {
               i = 0;
             }
-            // $(".bottom-index").children().css("background-color", "green");
 
-            // console.log(studentID);
             $(".indexClass").each(function(index, student) {
-              // console.log(student);
               // $(this) gets us the jQuery object
               // student is the HTML string
               if($(this).data("id") == i) {
                 // matched
-                $(this).css("background-color", "green");
+                $(this).css("background-color", "teal");
               } else {
-                $(this).css("background-color", "red");
+                $(this).css("background-color", "white");
               }
             })
-
-            // var studentID = $(".indexClass");
-            // for (var i = 0; i < studentID.length; i++) {
-            //     console.log($(this));
-            //   // if (studentID[i].data("id")== i){
-            //     // studentID[i].css("background-color", "green");
-            //   // }
-            //
-            // }
 
             loadStudent(data, i);
             console.log(i);
@@ -81,9 +69,9 @@ function loadData() {
               // student is the HTML string
               if($(this).data("id") == i) {
                 // matched
-                $(this).css("background-color", "green");
+                $(this).css("background-color", "teal");
               } else {
-                $(this).css("background-color", "red");
+                $(this).css("background-color", "white");
               }
             })
 
@@ -96,10 +84,9 @@ function loadData() {
         //appends bottom index
         function addBottomIndex(){
         for (var j = 0; j < data.sigmanauts.length; j++) {
-        $(".bottom-index").append('<div class="indexClass">' + j + '</div>');
+        $(".bottom-index").append('<div class="indexClass"></div>');
         $(".bottom-index").children().last().data('id', j);
-        $(".bottom-index").children().first().css("background-color", "green");
-
+        $(".bottom-index").children().first().css("background-color", "teal");
         }
       }
       }
