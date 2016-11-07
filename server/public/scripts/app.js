@@ -18,6 +18,7 @@ function loadData() {
         loadStudent(data, i);
         clicked();
 
+        //append students to the dom
         function loadStudent(data, i){
           $('#ajax-data').append('<div class="sigmanauts"></div>');
           var $el = $('#ajax-data').children().last();
@@ -28,21 +29,44 @@ function loadData() {
         }
 
           function clicked(){
+          //next button
           $("#next").click(function() {
             $('.sigmanauts').remove();
             i++;
             if (i === 19) {
               i = 0;
             }
-            loadStudent(data, i);
+            // $(".bottom-index").children().css("background-color", "green");
+
+            // console.log(studentID);
+            $(".indexClass").each(function(index, student) {
+              // console.log(student);
+              // $(this) gets us the jQuery object
+              // student is the HTML string
+              if($(this).data("id") == i) {
+                // matched
+                $(this).css("background-color", "green");
+              } else {
+                $(this).css("background-color", "red");
+              }
+            })
+
+            // var studentID = $(".indexClass");
+            // for (var i = 0; i < studentID.length; i++) {
+            //     console.log($(this));
+            //   // if (studentID[i].data("id")== i){
+            //     // studentID[i].css("background-color", "green");
+            //   // }
             //
-            // var clicking = $("#" + i).addClass("active");
-           // $(clicking).addClass("active");
-            // $(clicking).attr('id', 'active');
-            // console.log(clicking);
+            // }
+
+            loadStudent(data, i);
+            console.log(i);
+
 
           });
 
+          //previous button
           $("#prev").click(function() {
             $('.sigmanauts').remove();
             i--;
@@ -51,26 +75,47 @@ function loadData() {
             }
             loadStudent(data, i);
 
-          });
+            $(".indexClass").each(function(index, student) {
+              // console.log(student);
+              // $(this) gets us the jQuery object
+              // student is the HTML string
+              if($(this).data("id") == i) {
+                // matched
+                $(this).css("background-color", "green");
+              } else {
+                $(this).css("background-color", "red");
+              }
+            })
 
-          $(".indexClass").click(function() {
-            var currentStudent = i;
-            loadStudent(data, i);
           });
 
         }
 
         addBottomIndex();
-        addActive();
+
+        //appends bottom index
         function addBottomIndex(){
-        for (var i = 0; i < data.sigmanauts.length; i++) {
-        $(".bottom-index").append('<div class="indexClass" id="'+ i +' ">' + i + '</div>');
+        for (var j = 0; j < data.sigmanauts.length; j++) {
+        $(".bottom-index").append('<div class="indexClass">' + j + '</div>');
+        $(".bottom-index").children().last().data('id', j);
+
         }
-      }
-      function addActive(){
-        $(".indexClass:first-child").addClass('active');
       }
       }
     });
   }
 });
+
+
+//functions that didnt work!!! ARGH
+
+
+// function addActive(){
+//   $("#bottom-index").children().css("background-color", "red");
+//   $("#" + i).addClass('active');
+// }
+
+// $(".indexClass").click(function() {
+//   var currentStudent = i;
+//   loadStudent(data, i);
+// });

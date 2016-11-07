@@ -8,6 +8,7 @@ p {
   text-align: center;
   margin-left: 300px;
   margin-right: 300px;
+  border:
 }
 
 button {
@@ -15,17 +16,18 @@ button {
 }
 
 .indexClass {
-  background: red;
+  background-color: red;
   height: 50px;
   width: 50px;
   float: left;
   border-right: 1px solid white;
-
+    margin-top: 15px;
 }
 
 .active {
   background: yellow;
 }
+
 
 /*.indexClass::after {
   content: "pending";
