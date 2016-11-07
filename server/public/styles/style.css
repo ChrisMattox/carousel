@@ -8,9 +8,13 @@ h1 {
   font-size: 80px;
   text-align: center;
   color: teal;
-
+  margin: 20px;
 }
 
+h2 {
+  color: teal;
+
+}
 
 p {
   font-family: sans-serif;
@@ -22,6 +26,9 @@ p {
   padding: 5px 5px 5px 5px;
   color: white;
   min-height: 60px;
+  min-width: 200px;
+  border-radius: 5px;
+  margin-top:20px;
 }
 
 button {
@@ -43,7 +50,6 @@ button {
   margin-bottom: 15px;
   margin-left: 10px;
   margin-right: 10px;
-  border: 1px solid black;
   border-radius: 25px;
 }
 

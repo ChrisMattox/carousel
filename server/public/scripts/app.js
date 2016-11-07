@@ -22,7 +22,7 @@ function loadData() {
         function loadStudent(data, i){
           $('#ajax-data').append('<div class="sigmanauts"></div>');
           var $el = $('#ajax-data').children().last();
-          $el.append('<p>'+ "Name: " + data.sigmanauts[i].name + '</p>');
+          $el.append('<h2><p>' + data.sigmanauts[i].name + '</p></h2>');
           $el.append('<p>'+ "Git Username: " + data.sigmanauts[i].git_username + '</p>');
           $el.append('<p>'+ "Shoutout: " + data.sigmanauts[i].shoutout + '</p>');
 
