@@ -98,6 +98,7 @@ function loadData() {
         for (var j = 0; j < data.sigmanauts.length; j++) {
         $(".bottom-index").append('<div class="indexClass">' + j + '</div>');
         $(".bottom-index").children().last().data('id', j);
+        $(".bottom-index").children().first().css("background-color", "green");
 
         }
       }
